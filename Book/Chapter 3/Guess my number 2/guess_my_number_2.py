@@ -18,8 +18,8 @@ while the_number != "Угадал":
     the_number = input("Напишите 'Больше, Меньше или Угадал': ")
     if the_number == "Больше":
         guess = random.randint(guess,100)
-    elif the_number == "Меньше" and guess >= 0:
-        guess -= random.randint(1,guess)
+    elif the_number == "Меньше":
+        guess = random.randint(1,guess)
     else:
         print("Проверьте правильность ввода своего ответа. Соблюдайте регистр.")
         continue

@@ -40,7 +40,7 @@ print("\n\n\tТеперь Ваша очередь загадывать!")
 print("\nЗагадайте натуральное число из диапозона от 1 до 100")
 print("Я постараюсь отгадать его за 5 попыток.\n")
 
-guess = random.randint(1,100)
+guess = random.randint(1, 100)
 the_number = ""
 tries = 1
 
@@ -49,9 +49,9 @@ while the_number != "Угадал":
     print("Я предполагаю это ", guess)
     the_number = input("Напишите 'Больше, Меньше или Угадал': ")
     if the_number == "Больше" and guess <= 100:
-        guess += random.randint(1,20)
+        guess += random.randint(1, 20)
     elif the_number == "Меньше" and guess >= 0:
-        guess -= random.randint(1,20)
+        guess -= random.randint(1, 20)
     else:
         print("\nПроверьте правильность ввода своего ответа. Соблюдайте регистр.")
         continue

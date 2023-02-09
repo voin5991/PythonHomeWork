@@ -97,11 +97,11 @@ print(
     """
 )
 print("\nВ этом слове ", length, " букв")
-print("Подсказка: ", clue)
+print("Подсказка: ", clue.upper())
 attempt = 5
 guess = input("\nВведите букву или попробуйте отгадать слово целиком: ")
 attempt -= 1
-while guess != "" and attempt >= 1:
+while guess != "" and attempt >= 1 and guess != word:
     if guess in word:
         print("Есть такая буква!")
     else:
@@ -131,7 +131,7 @@ elif guess == "":
 if guess == word and attempt == -1:
     print("\nВерно! Я загадал слово ", word.upper(), ". Поздравляю!")
 
-if guess != word:
+if guess != word and guess != "":
     print("\nУвы, вы не отгадали слово.")
     print("Это было слово ", word.upper())
     print("Не сдавайтесь! Попробуйте еще раз!")

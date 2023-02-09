@@ -112,9 +112,9 @@ while guess != "" and attempt >= 1 and guess != word:
     if guess == word:
         break
 
-if guess in word and guess != word:
+if guess in word and guess != word and guess != "":
     print("Есть такая буква!")
-elif guess not in word and guess != word:
+elif guess not in word and guess != word and guess != "":
     print("Нет такой буквы в этом слове.")
 
 if attempt == 0 and guess != word:

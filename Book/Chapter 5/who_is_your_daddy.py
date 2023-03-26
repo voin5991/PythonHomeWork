@@ -28,10 +28,11 @@ while choice != 0:
     if choice == 1:
         term = input("Введите имя и фамилию персонажа: ")
         if term in star_wars:
-            print(star_wars.get(term))
+            print(star_wars[term])
+        elif term in star_wars[:]
         else:
             print("Нет информации об этом персонаже.")
     elif choice == 2:
         term = input("Введите Имя персонажа, данные которого хотите изменить: ")
-        if term in star_wars:
+
 

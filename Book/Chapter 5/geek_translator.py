@@ -24,13 +24,39 @@ while choice != "0":
         choice = input("Ваш выбор: ")
         print()
         # Выход
-        if choice == 0:
+        if choice == "0":
                 print("До свидания")
         # Поис толкования
-        if choice == 1:
+        if choice == "1":
                 term = input("Какой термин вы хотите перевести с гикского на русский? ")
                 if term in geek:
                         definition = geek[term]
                         print("\n", term, "означает", definition)
                 else:
                         print("\nУвы, этот термин мне не знаком: ", term)
+        # добавление термина с толкованием
+        elif choice == "2":
+                term = input("Какой термин гикского языка вы хотите добавить? ")
+                if term not in geek:
+                        definition = input("\nВпишите ваше толкование: ")
+                        geek[term] = definition
+                        print("\nТермин", term, "Добавлен в словарь.")
+                else:
+                        print("\nТакой термин уже есть! Попробуйте изменить его толкование.")
+        # новое толкование известного термина
+        elif choice == "3":
+                term = input("Какой термин вы хотите переопределить? ")
+                if term in geek:
+                        definition = input("Впишите ваше толкование: ")
+                        geek[term] = definition
+                        print("\nТермин", term, "переопределен.")
+                else:
+                        print("\nТакого термина пока нет! Попробуйте добавить его в словарь.")
+        # удаление термина вместе с его толкованием
+        elif choice == "4":
+                term = input("Какой термин вы хотите удалить? ")
+                if term in geek:
+                        del geek[term]
+                        print("\nТермин", term, "удален.")
+                else:
+                        print("\nНичем не могу помочь. Термина", term, "нет в словаре.")

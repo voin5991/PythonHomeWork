@@ -171,6 +171,7 @@ def computer_move(board, computer, human):
         if move in legal_moves(board):
             print(move)
             return move
+    # TODO: Придумать безупречную стратегию для хода компьютера.
 
 def next_turn(turn):
     """

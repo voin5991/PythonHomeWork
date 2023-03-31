@@ -45,11 +45,12 @@ def guessing_loop():
         else:
             print("Больше...")
         tries += 1
-        print("Вы использовали ", tries, " попытку(ки)")
-        guess = ask_number("Ваше предположение: ", 1, 100)
         if tries == 5:
             print('Достигнут лимит попыток.')
             break
+        else:
+            print("Вы использовали ", tries, " попытку(ки)")
+            guess = ask_number("Ваше предположение: ", 1, 100)
     return guess
 
 def congratulation(answer):

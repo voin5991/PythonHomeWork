@@ -1,6 +1,4 @@
-# TODO: Доработать игру "Викторина" таким образом, чтобы у каждого вопроса появился "номинал" - уникальное
-#   количество очков. В конце игры сумма очков пользователя должна стать равной сумме номиналов вопросов,
-#   на которые он ответил верно.
+
 # TODO: Доработать игру "Викторина" таким образом, чтобы она хранила в файле список рекордов. В список должны
 #   попадать имя и результат игрока-рекордсмена. Используйте для хранения таблицы рекордов консервирован
 #   ный объект.
@@ -48,6 +46,7 @@ def next_block(the_file):
     """
     category = next_line(the_file)
     question = next_line(the_file)
+    denomination = next_line(the_file)
     answers = []
     for i in range(4):
         answers.append(next_line(the_file))
@@ -55,7 +54,7 @@ def next_block(the_file):
     if correct:
         correct = correct[0]
     explanation = next_line(the_file)
-    return category, question, answers, correct, explanation
+    return category, question, denomination, answers, correct, explanation
 
 def welcome(title):
     """
@@ -72,7 +71,7 @@ def main():
     welcome(title)
     score = 0
     # извлечение первого блока
-    category, question, answers, correct, explanation = next_block(trivia_file)
+    category, question, denomination, answers, correct, explanation = next_block(trivia_file)
     while category:
         # вывод вопроса на экран
         print(category)
@@ -84,13 +83,13 @@ def main():
         # проверка ответа
         if answer == correct:
             print("\nДа!", end=" ")
-            score += 1
+            score += int(denomination)
         else:
             print("\nНет.", end=" ")
         print(explanation)
         print("Счет: ", score, "\n\n")
         # переход к следующему вопросу
-        category, question, answers, correct, explanation = next_block(trivia_file)
+        category, question, denomination, answers, correct, explanation = next_block(trivia_file)
     trivia_file.close()
     print("Это был последний вопрос!")
     print("На вашем счету", score)

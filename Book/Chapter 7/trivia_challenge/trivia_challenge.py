@@ -11,6 +11,7 @@ import pickle
 # вопросы которой читаются из текстового файла
 import sys
 
+
 def open_file(file_name, mode):
     """
     Открывает файл.
@@ -27,6 +28,7 @@ def open_file(file_name, mode):
     else:
         return the_file
 
+
 def next_line(the_file):
     """
     Возвращает в отформатированном виде очередную строку игрового файла.
@@ -36,6 +38,7 @@ def next_line(the_file):
     line = the_file.readline()
     line = line.replace("/", "\n")
     return line
+
 
 def next_block(the_file):
     """
@@ -55,6 +58,7 @@ def next_block(the_file):
     explanation = next_line(the_file)
     return category, question, denomination, answers, correct, explanation
 
+
 def welcome(title):
     """
     Приветствует игрока и сообщает тему игры.
@@ -73,12 +77,12 @@ def write_record(the_file, score):
     :return:
     """
     name = input("\nВведите ваше Имя для сохранения результата: ")
-    result = {}
+    result = pickle.load(the_file)
     result[name] = score
-
     pickle.dump(result, the_file)
     print("\nРезультат успешно записан!")
     return the_file
+
 
 
 def main():
@@ -109,10 +113,8 @@ def main():
     trivia_file.close()
     print("Это был последний вопрос!")
     print("На вашем счету", score)
-    record_file = open_file("records.dat", "ab+")
+    record_file = open("records.dat", "ab+")
     write_record(record_file, score)
-    result = pickle.load(record_file)
-    print(result)
     record_file.close()
 
 main()

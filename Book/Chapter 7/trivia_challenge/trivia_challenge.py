@@ -1,11 +1,7 @@
-# TODO: Доработать игру "Викторина" таким образом, чтобы она хранила в файле список рекордов. В список должны
-#   попадать имя и результат игрока-рекордсмена. Используйте для хранения таблицы рекордов консервирован
-#   ный объект.
 # TODO: Реализовать ту же самую функциональность, что и в предыдущей задаче, иным способом: на этот раз сохранить
 #   список рекордов в обычном текстовом файле.
 # TODO: Создать эпизод игры "Викторина", который будет проверять осведомленность игрока о работе с файлами
 #   и исключениями в Python.
-import pickle
 # Викторина
 # Игра на выбор правильного варианта ответа.
 # вопросы которой читаются из текстового файла
@@ -73,11 +69,9 @@ def write_record(the_file, score):
     :return:
     """
     name = input("\nВведите ваше Имя для сохранения результата: ")
-    f = open(the_file, "rb")
-    result = pickle.load(f)
-    result[name] = score
-    with open(the_file, "wb") as e:
-        pickle.dump(result, e)
+    f = open_file(the_file, "a")
+    lines = [name, ": ", str(score), "\n"]
+    f.writelines(lines)
     f.close()
     print("\nРезультат успешно записан!")
     return the_file
@@ -111,10 +105,9 @@ def main():
     trivia_file.close()
     print("Это был последний вопрос!")
     print("На вашем счету", score)
-    write_record("records.dat", score)
-    with open("records.dat", "rb") as f:
-        fp = pickle.load(f)
-        print(fp)
+    write_record("records.txt", score)
+    with open("records.txt", "r", encoding='utf-8') as f:
+        print(f.read())
 
 main()
 input("\n\nНажмите Enter, чтобы выйти.")

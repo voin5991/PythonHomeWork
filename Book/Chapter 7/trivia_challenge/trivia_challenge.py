@@ -73,10 +73,12 @@ def write_record(the_file, score):
     :return:
     """
     name = input("\nВведите ваше Имя для сохранения результата: ")
-    result = {}
+    f = open(the_file, "rb")
+    result = pickle.load(f)
     result[name] = score
-
-    pickle.dump(result, the_file)
+    with open(the_file, "wb") as e:
+        pickle.dump(result, e)
+    f.close()
     print("\nРезультат успешно записан!")
     return the_file
 
@@ -109,11 +111,10 @@ def main():
     trivia_file.close()
     print("Это был последний вопрос!")
     print("На вашем счету", score)
-    record_file = open_file("records.dat", "ab+")
-    write_record(record_file, score)
-    result = pickle.load(record_file)
-    print(result)
-    record_file.close()
+    write_record("records.dat", score)
+    with open("records.dat", "rb") as f:
+        fp = pickle.load(f)
+        print(fp)
 
 main()
 input("\n\nНажмите Enter, чтобы выйти.")

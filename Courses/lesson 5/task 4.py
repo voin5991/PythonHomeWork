@@ -1,19 +1,43 @@
 def addition(a, b):
+    """
+    Функция сложения
+    :param a:
+    :param b:
+    :return:
+    """
     result = a + b
     return result
 
 
 def subtraction(a, b):
+    """
+    Функция вычитания
+    :param a:
+    :param b:
+    :return:
+    """
     result = a - b
     return result
 
 
 def multiplication(a, b):
+    """
+    Функция умножения
+    :param a:
+    :param b:
+    :return:
+    """
     result = a * b
     return result
 
 
 def division(a, b):
+    """
+    Функция деления
+    :param a:
+    :param b:
+    :return:
+    """
     if a != 0 and b != 0:
         result = a / b
         return result

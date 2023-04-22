@@ -1,4 +1,12 @@
 def math_average(a, b, c):
+    """
+    Функция рассчета среднего арифметического выражения
+    трёх заданных чисел
+    :param a:
+    :param b:
+    :param c:
+    :return:
+    """
     average = (a + b + c) // 3
     return average
 

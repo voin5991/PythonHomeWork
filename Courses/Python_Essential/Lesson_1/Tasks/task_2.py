@@ -10,16 +10,24 @@ class Book:
             self.genre == other.genre
 
     def __repr__(self):
-        return "{}, {}, {!r}, {}".format(self.author, self.book_name, self.year, self.genre)
+        return """\t\tАвтор: {}, 
+        Название: {},
+        Год выпуска: {!r},
+        Жанр: {}
+        """.format(self.author, self.book_name, self.year, self.genre)
 
     def __str__(self):
-        return "{}, {}, {!r}, {}".format(self.author, self.book_name, self.year, self.genre)
+        return """\t\tАвтор: {}, 
+        Название: {},
+        Год выпуска: {!r},
+        Жанр: {}
+        """.format(self.author, self.book_name, self.year, self.genre)
 
 
 book_1 = Book("Жюль Верн", "Таинственный остров", 1873, "Робинзонада")
 book_2 = Book("Александр Дюма", "Граф Монте-Кристо", 1846, "Исторический роман")
 book_3 = Book("Майкл Доусон", "Программируем на Python", 2022, "Учебное пособие")
 
-print(book_1 == book_2)
-print(book_2 != book_1)
+print(book_1)
+print(book_2)
 print(book_3)
